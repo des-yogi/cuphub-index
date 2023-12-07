@@ -1,0 +1,23 @@
+.video-card {
+  position: relative;
+  border-radius: $border-radius--32;
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__play-btn {
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    height: 72px;
+    width: 72px;
+    background-color: $main-color;
+    background-size: 24px 27px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: svg-load('../blocks/video-card/bg-img/play.svg', fill=$white);
+    border-radius: $border-radius;
+    user-select: none;
+    pointer-events: none;
+  }
+}

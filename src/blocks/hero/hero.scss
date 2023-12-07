@@ -1,0 +1,114 @@
+.hero {
+  padding-top: 48px;
+  padding-bottom: 16px;
+
+  $block-name:                &; // #{$block-name}__element
+
+  .block {
+    display: block;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 38px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 40px;
+      font-size: 54px;
+    }
+  }
+
+  &__inner {
+    gap: 16px 0;
+  }
+
+  &__col {
+    @include col(xs, 12);
+    @include col(lg, 6);
+  }
+
+  &__text {
+  }
+
+  &__invite {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media (min-width: $screen-md) {
+      flex-wrap: initial;
+    }
+  }
+
+  &__invite-text {
+    flex: 1 1 100%;
+    padding: 24px;
+    margin-bottom: 0;
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0.08);
+
+    @media (min-width: $screen-md) {
+      flex: 1 1;
+      flex-basis: calc(100% / 3 * 2 - 8px);
+    }
+
+    & > span {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__invite-btn {
+    flex: 1 1 100%;
+    justify-content: space-between;
+    min-height: 74px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-radius: $border-radius;
+
+    @media (min-width: $screen-md) {
+      flex: 1 1;
+      flex-basis: calc(100% / 3 - 8px);
+      align-items: flex-end;
+    }
+  }
+
+  &__video-wrapper {
+    position: relative;
+    z-index: 0;
+    padding-top: 108px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+
+    &::before,
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      top: 42px;
+      left: 30px;
+      width: 170px;
+      height: 170px;
+      background-image: url('../img/blue-tor.png');
+      background-image: url('../img/blue-tor.webp');
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      width: 112px;
+      height: 103px;
+      background-image: url('../img/gold-square.png');
+      background-image: url('../img/gold-square.webp');
+    }
+  }
+}

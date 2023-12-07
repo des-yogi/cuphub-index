@@ -1,0 +1,51 @@
+.lang-switcher {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $screen-md) {
+    margin-left: 16px;
+  }
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__btn {
+    //color: $text-color;
+
+    & > svg {
+      //fill: currentColor;
+      stroke-width: 1.8px;
+      //stroke: currentColor;
+    }
+  }
+
+  &__menu {
+    min-width: 70px;
+    background-color: $body-bg;
+    border: 2px solid $border-color;
+    border-radius: $border-radius--32;
+    overflow: hidden;
+  }
+
+  &__item {
+
+    &.active a {
+      color: $link-color--hover;
+    }
+
+    a {
+      display: block;
+      padding: 8px 24px;
+      font-size: $font-size-sm;
+      font-weight: 500;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $link-color--hover;
+        background-color: $white;
+      }
+    }
+  }
+}

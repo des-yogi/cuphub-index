@@ -1,0 +1,653 @@
+
+// Make viewport great again (responsive)
+// http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@at-root {
+
+  @-ms-viewport { // stylelint-disable-line  at-rule-no-vendor-prefix
+    width: device-width;
+  }
+}
+
+.page { // html
+
+  $block-name:                &; // #{$block-name}__element
+
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%; // stylelint-disable-line  property-no-vendor-prefix
+  min-width: 360px;
+  min-height: 100%;
+
+
+  &__inner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer-wrapper {
+    flex-shrink: 0;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  // Типографика проекта — в блоке typo
+  display: flex;           // Исправляем баг в IE для min-height and flexbox (flex-direction:column)
+  flex-direction: column;  // и прижимаем footer в IE 10-11
+  background-color: #fff;
+  margin: 0;
+  min-height: 100%;
+}
+
+[tabindex='-1']:focus {
+  outline: none !important; // stylelint-disable-line  declaration-no-important
+}
+
+// iOS 'clickable elements' fix for role='button'
+[role='button'] {
+  cursor: pointer;
+}
+
+// Мы любим Сафари (на самом деле, нет).
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+a,
+// area,
+button,
+[role='button'],
+input,
+label,
+select,
+// summary,
+textarea {
+  touch-action: manipulation; // Стилевая коррекция 300ms задержки (для поддерживающих браузеров)
+  margin: 0;                  // Убираем margin в Firefox и Safari
+}
+
+button,
+input {
+  overflow: visible;    // Покажем торчащее в Edge
+  text-transform: none; // Уберём наследование text transform в Firefox
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // Коррекция проблем стилизации для Safari
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox; // Коррекция для Mobile Safari (https://github.com/twbs/bootstrap/issues/11266)
+}
+
+textarea {
+  overflow: auto;   // Удаление верт. скролла в IE.
+  resize: vertical; // Правильное изменение размеров
+}
+
+// Фикс для исправления закругленных углов на iOS/Safari
+//textarea,
+//input[type="text"],
+//input[type="search"],
+//input[type="button"],
+//input[type="submit"] {
+//  -webkit-appearance: none;
+//  border-radius: 0;
+//background-image: linear-gradient(to bottom, #e4e4e4, #f7f7f7);
+//border: 1px solid #afafaf;
+//}
+
+// Мы любим Edge, это браузер! (почти)
+svg {
+  fill: currentColor;
+
+  a &,
+  button & {
+    pointer-events: none;
+  }
+
+  &:not(:root) {
+    overflow: hidden; // Скрыть выступающее за границы в IE
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+  background-color: transparent;
+  transition: color $transition-time;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $link-color--hover;
+  }
+
+  &.special {
+    display: inline-block;
+    vertical-align: baseline;
+    position: relative;
+    font-weight: 500;
+    text-decoration: none !important;
+    color: $text-color;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      width: 100%;
+      height: 1.5px;
+      background-color: currentColor;
+    }
+
+    &:hover,
+    &:focus {
+      color: $link-color--hover;
+    }
+  }
+}
+
+.fade {
+  @include transition($transition-fade);
+
+  &:not(.show) {
+    opacity: 0;
+  }
+}
+
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
+
+  &.collapse-horizontal {
+    width: 0;
+    height: auto;
+    @include transition($transition-collapse-width);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.list-nostyled {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  li::before {
+    display: none;
+  }
+}
+
+/* Кастомизируем выделение текста на сайте */
+*:not(img)::selection {
+  color: $white;
+  background-color: $main-color; /* Safari, Chrome, Opera */
+}
+
+*:not(img)::-moz-selection {
+  color: $white;
+  background-color: $main-color; /* FireFox */
+}
+
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: none;
+
+  @media (min-width: $screen-lg) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: $screen-xxl) {
+    $padding-min: 40px; // нужный отступ от краев экрана
+    $half-screen-xxl: $screen-xxl / 2 - $padding-min;
+    // padding: 1em calc(50% - 600px); //600px - это $screen-xl / 2 - нужный отступ от края экрана
+    padding-left: calc(50% - #{$half-screen-xxl});
+    padding-right: calc(50% - #{$half-screen-xxl});
+  }
+}
+
+// Родитель. Указаны промежутки между ячейками: XS|SM|MD|LG|XL|XXL;
+// @include row($grid-gutter-width, 10px, 12px, 16px, 20px, 26px);
+.row {
+  @include row(
+    $xs-grid-gutter:  $grid-gutter-width,
+    $sm-grid-gutter:  $grid-gutter-width,
+    $md-grid-gutter:  $grid-gutter-width,
+    $lg-grid-gutter:  $grid-gutter-width,
+    $xl-grid-gutter:  $grid-gutter-width,
+    $xxl-grid-gutter: $grid-gutter-width
+  );
+}
+
+/* &__element {
+  @include col(); // малые ширины — 12 из 12, промежутки по умолчанию
+  @include col(sm, 6, $grid-columns, 10px);  // SM (480 по умолчанию) — 6 из 12, промежутки 10px
+  @include col(md, 4, $grid-columns, 12px);  // MD (768 по умолчанию) — 4 из 12, промежутки 12px
+  @include col(lg, 3, $grid-columns, 16px);  // LG (992 по умолчанию) — 3 из 12, промежутки 16px
+  @include col(xl, 2, $grid-columns, 20px);  // XL (1200 по умолчанию) — 2 из 12, промежутки 20px
+  @include col(xxl, 1, $grid-columns, 26px); // XXL (1800 по умолчанию) — 1 из 12, промежутки 26px
+} */
+
+
+* {
+
+  @media (min-width: $screen-lg) {
+    //Firefox only
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-color: $border-color;
+    scrollbar-width: thin;  /* толщина */
+
+    //for webkit browsers (Chrome, Opera, Safary, Edge ets.)
+    //Here is a complete list of all the new pseudo-elements. All of these pseudo-elements must be prefixed with -webkit-:
+    // scrollbar
+    // scrollbar-button
+    // scrollbar-track
+    // scrollbar-track-piece
+    // scrollbar-thumb
+    // scrollbar-corner
+    // resize
+
+    /* полоса прокрутки (скроллбар) */
+    ::-webkit-scrollbar {
+        width: 6px; /* ширина для вертикального скролла */
+        height: 6px; /* высота для горизонтального скролла */
+        background-color: $border-color;
+    }
+
+    /* ползунок скроллбара */
+    ::-webkit-scrollbar-thumb {
+      background-color: $main-color;
+      border-radius: 8px;
+      box-shadow: none;
+      //box-shadow: inset 1px 1px 10px #f3faf7;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: $link-color--hover;
+    }
+  }
+}
+
+.invisible-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.publishedon {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  padding-left: 28px;
+  font-size: inherit;
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+}
+
+.publishedon {
+  font-weight: 500;
+
+  &::before {
+    background-image: svg-load('../blocks/sprite-svg/svg/calendar.svg', stroke=$text-color);
+  }
+}
+
+// .views {
+
+//   &::before {
+//     background-image: svg-load('../blocks/sprite-svg/svg/eye-open.svg', stroke=$text-color);
+//   }
+
+//   span {
+//     font-weight: 500;
+//   }
+// }
+
+// .tags {
+//   font-size: $font-size-sm;
+//   font-weight: 500;
+
+//   span {
+//     display: inline-block;
+//     vertical-align: baseline;
+//     padding: 4px 8px;
+//     margin-right: 8px;
+//     margin-bottom: 8px;
+//     white-space: nowrap;
+//     background-color: $gray-bg;
+//     border-radius: $border-radius--32;
+//   }
+// }
+
+// fieldset {
+//   padding: 0 0 24px 0;
+//   margin: 0 0 24px 0;
+//   border-top: none;
+//   border-right: none;
+//   border-left: none;
+//   border-bottom: 1px solid $border-color;
+
+//   &:last-child {
+//     padding-bottom: 0;
+//     margin-bottom: 0;
+//     border-bottom: none;
+//   }
+
+//   legend {
+
+//     &.h4 {
+//       margin-top: 0;
+//     }
+//   }
+// }
+
+// .content-more-wrapper {
+//   display: flex;
+//   margin-top: 32px;
+
+//   @media (min-width: $screen-md) {
+//     margin-top: 40px;
+//   }
+
+//   .btn {
+//     width: 295px;
+//     margin: 0 auto;
+//   }
+// }
+
+// .air-datepicker-global-container {
+
+//   .air-datepicker {
+//     z-index: 1060;
+//   }
+// }
+
+// .col-12-10-8 {
+//   @include col(xs, 12);
+//   @include col(md, 10);
+//   @include col-offset(xl, 2);
+//   @include col(xl, 8);
+// }
+
+// .lead {
+//   font-size: 20px;
+//   font-weight: 500;
+
+//   strong {
+//     font-weight: inherit;
+//     color: $main-color;
+//   }
+// }
+
+// .text-content {
+//   padding-bottom: 72px;
+
+//   @media (min-width: $screen-md) {
+//     padding-bottom: 96px;
+//   }
+// }
+
+// Swiper Controls
+// .swiper-controls {
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: space-between;
+//   //margin-top: 40px;
+
+//   & > * {
+//     position: static;
+//   }
+
+//   .swiper-pagination {
+//     width: auto;
+//     margin: 0 40px;
+//   }
+
+//   .swiper-pagination-bullet {
+//     width: 18px;
+//     height: 3px;
+//     border-radius: 3px !important;
+//     background-color: $secondary-color;
+//     opacity: 0.25;
+//   }
+
+//   .swiper-pagination-bullet-active {
+//     width: 32px;
+//     opacity: 1;
+//   }
+
+//   .swiper-button-prev,
+//   .swiper-button-next {
+//     width: 48px;
+//     height: 48px;
+//     margin-top: 0;
+//     border: none;
+//     user-select: none;
+//     cursor: pointer;
+//     background-color: $secondary-color;
+//     border-radius: 50%;
+//     transition: all $transition-time;
+
+//     &::after {
+//       display: block;
+//       width: 24px;
+//       height: 24px;
+//       content: "";
+//       background-size: 24px;
+//       background-repeat: no-repeat;
+//       background-position: center;
+//       transition: all $transition-time;
+//     }
+
+//     &:hover,
+//     &:focus {
+//       background-color: $link-color--hover;
+//     }
+//   }
+
+//   .swiper-button-prev {
+
+//     &::after {
+//       background-image: svg-load('../blocks/sprite-svg/svg/chevron-left.svg', stroke=$white);
+//     }
+//   }
+
+//   .swiper-button-next {
+//     margin-left: 8px;
+
+//     &::after {
+//       background-image: svg-load('../blocks/sprite-svg/svg/chevron-right.svg', stroke=$white);
+//     }
+//   }
+
+//   .swiper-button-disabled {
+//     background-color: rgba($secondary-color, 0.1);
+
+//     &.swiper-button-prev::after {
+//       background-image: svg-load('../blocks/sprite-svg/svg/chevron-left.svg', stroke=$text-muted);
+//     }
+
+//     &.swiper-button-next::after {
+//       background-image: svg-load('../blocks/sprite-svg/svg/chevron-right.svg', stroke=$text-muted);
+//     }
+//   }
+// }
+
+.modal-content {
+  border-radius: $border-radius;
+}
+
+.modal-header {
+  align-items: center;
+  padding: 40px 16px 24px;
+  border-bottom: none;
+
+  @media (min-width: $screen-md) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.modal-body {
+  padding: 0 16px 24px;
+
+  @media (min-width: $screen-md) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.modal-footer {
+  justify-content: center;
+  padding: 0 16px 40px;
+  font-size: 14px;
+  font-weight: 500;
+  border-top: none;
+
+  @media (min-width: $screen-md) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.modal-warning {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  margin-bottom: 24px;
+  font-size: $font-size;
+  font-weight: 500;
+  color: $white;
+  border-radius: $border-radius;
+  background-color: $color-danger;
+
+  svg {
+    stroke: currentColor;
+    stroke-width: 2px;
+    margin-right: 16px;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 24px 0;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    height: 1px;
+    background-color: $gray-lightest;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+    font-weight: 500;
+    background-color: $body-bg;
+  }
+}
+
+
+// @include col(xs, 12);
+// @include col(md, 6);
+// @include col(xl, 4);
+
+// background-image: svg-load('../blocks/phones-modal/bg-img/phone.svg', stroke=$text-color);
+// background-image: svg-load('../blocks/sprite-svg/svg/grid.svg', stroke=$text-color);
