@@ -1,0 +1,39 @@
+<!--DEV
+@ @include('blocks/hero/hero.html')
+-->
+
+<div class="container  hero">
+  <h1 class="hero__title">
+    Community <span style="color:#388CC8;">Policing</span>
+    <span class="block">Knowledge Hub</span>
+  </h1>
+
+  <div class="row  hero__inner">
+
+    <div class="hero__col">
+      <div class="hero__text">
+        <p>Це безкоштовна навчальна платформа, присвячена співпраці поліції та громади для спільного вирішення безпекових питань.</p>
+
+        <div class="hero__invite">
+          <p class="hero__invite-text">
+            <span>Авторизуйтеся</span>
+            аби завантажити матеріали та отримати допомогу у реалізації безпекового проекту у вашій громаді
+          </p>
+          <button class="btn  hero__invite-btn">
+            <span>Авторизуватись</span>
+            <svg width="24" height="24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite-svg.svg#arrow-right-sm"></use></svg>
+          </button>
+        </div>
+
+        <p>У віртуальному хабі зібрані описи та алгоритми реалізації успішних проєктів, інформаційно-просвітницькі матеріали, тренінги та інструкції з проєктної діяльності, а також онлайн-курси та світовий досвід впровадження філософії Community Policing.</p>
+      </div>
+    </div>
+
+    <div class="hero__col">
+      <div class="hero__video-wrapper">
+        @@include('../../blocks/video-card/video-card.html')
+      </div>
+    </div>
+
+  </div>
+</div>
