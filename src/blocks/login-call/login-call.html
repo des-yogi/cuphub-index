@@ -1,14 +1,23 @@
 <!--DEV
-
-Для использования этого файла как шаблона:
-
 @ @include('blocks/login-call/login-call.html')
-
-(Нужно убрать пробел между символами @)
-Подробнее: https://www.npmjs.com/package/gulp-file-include
-
-
-
-<div class="login-call">content</div>
-
 -->
+
+<aside class="container  login-call">
+  <div class="row  login-call__inner">
+
+    <div class="login-call__col-text">
+      <div class="login-call__text">
+        <h2 style="margin-top:0;">Готові розпочати?</h2>
+        <p style="font-size:24px; font-weight:500;">Свіжі та актуальні публікації від експертів Community Policing</p>
+      </div>
+    </div>
+
+    <div class="login-call__col-btn">
+      <button class="btn  hero__invite-btn" style="width:100%; height:135px;">
+        <span>Авторизуватись</span>
+        <svg width="24" height="24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite-svg.svg#arrow-right-sm"></use></svg>
+      </button>
+    </div>
+
+  </div>
+</aside>

@@ -29,7 +29,9 @@
     "event-calendar": [],
     "partner-map": [],
     "news-card": [],
-    "login-call": []
+    "login-call": [],
+    "field-select": [],
+    "category-card": []
   },
   "addCssBefore": [
     "../../node_modules/bootstrap/scss/_functions",

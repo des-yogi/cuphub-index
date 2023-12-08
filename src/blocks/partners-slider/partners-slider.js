@@ -1,10 +1,10 @@
 (function(){
-  const about = new Swiper('.partners-slider__swiper', {
+  const partners = new Swiper('.partners-slider__swiper', {
     speed: 400,
-    spaceBetween: 8,
+    spaceBetween: 16,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 4500,
     },
     slidesPerView: 'auto',
     preloadImages: false,

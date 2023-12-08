@@ -1,9 +1,48 @@
-// В этом файле должны быть стили для БЭМ-блока login-call, его элементов, 
-// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
-// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-
 .login-call {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top-left-radius: $border-radius--32;
+  border-top-right-radius: $border-radius--32;
+  background-color: $light-bg;
+  background-repeat: no-repeat;
+  background-size: 414px 414px;
+  background-position: top -265px right -135px;
+  background-image: url(../img/blue-tor-xl.png);
+  background-image: url(../img/blue-tor-xl.webp);
+
+  @media (min-width: $screen-lg) {
+    background-position: 68% 116%;
+  }
+
+  @media (min-width: $screen-xl) {
+    background-position: 79% 116%;
+  }
+
+  @media (min-width: $screen-xxl) {
+    background-position: 75.5% 116%;
+  }
 
   $block-name:                &; // #{$block-name}__element
 
+  &__inner {
+    gap: 16px 0;
+  }
+
+  &__col-text {
+    @include col(xs, 12);
+    @include col(lg, 8);
+    @include col(xl, 9);
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__col-btn {
+    @include col(xs, 12);
+    @include col(md, 6);
+    @include col(lg, 4);
+    @include col(xl, 3);
+  }
 }

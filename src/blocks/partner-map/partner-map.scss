@@ -1,8 +1,11 @@
-// В этом файле должны быть стили для БЭМ-блока partner-map, его элементов, 
-// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
-// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-
 .partner-map {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media (min-width: $screen-md) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 
   $block-name:                &; // #{$block-name}__element
 

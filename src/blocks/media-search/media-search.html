@@ -1,14 +1,64 @@
 <!--DEV
-
-Для использования этого файла как шаблона:
-
 @ @include('blocks/media-search/media-search.html')
-
-(Нужно убрать пробел между символами @)
-Подробнее: https://www.npmjs.com/package/gulp-file-include
-
-
-
-<div class="media-search">content</div>
-
 -->
+
+<section class="container  media-search">
+  <div class="row  media-search__inner">
+
+    <div class="media-search__col-img">
+      <div class="media-search__img">
+        <picture>
+          <source srcset="img/media-search-img.webp" media="(min-wisth: 1280px)" type="image/webp">
+          <source srcset="img/media-search-img.jpg" media="(min-wisth: 1280px)">
+            <!-- 840x400  -->
+          <source srcset="img/media-search-img.webp" media="(min-wisth: 768px)" type="image/webp">
+          <source srcset="img/media-search-img.jpg" media="(min-wisth: 768px)">
+            <!-- 1200x400  -->
+          <source srcset="img/media-search-img.webp" media="(min-wisth: 360px)" type="image/webp">
+          <source srcset="img/media-search-img.jpg" media="(min-wisth: 360px)">
+            <!-- 840x400  -->
+          <img src="img/media-search-img.jpg" alt="Alt text" width="1200" height="400" loading="lazy">
+        </picture>
+      </div>
+    </div>
+
+    <div class="media-search__col-form">
+      <div class="media-search__form-wrapper">
+        <div class="media-search__form-header">
+          <h2 style="margin-bottom:8px; font-size:26px; font-weight:700;line-height:1.2;">Пошук реалізованих безпекових ініціатив</h2>
+          <p style="margin-bottom:40px; font-size:20px;">Знаходьте і завантажуйте практичні і навчальні матеріали</p>
+        </div>
+
+        <form class="media-search__form" action="#" method="post">
+          <div class="media-search__input-group">
+
+            <label class="field-text" style="margin-bottom: 0;">
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="search" name="search" value="" placeholder="Пошук">
+                <span class="field-text__help-text error"></span>
+              </span>
+            </label>
+
+            <div class="field-select">
+              <span class="field-select__select-wrap">
+                <select class="field-select__select" name="any">
+                  <option value="value1">Значение 1</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                  <option value="value4">Значение 4</option>
+                </select>
+                <span class="field-select__help-text error"></span>
+              </span>
+            </div>
+
+          </div>
+
+          <button class="btn" type="submit" style="width:100%;"><span>Пошук</span></button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
