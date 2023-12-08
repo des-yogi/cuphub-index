@@ -13,15 +13,65 @@
   <div class="page__inner">
 
     <div class="page__content">
+
       <div class="page-header__wrapper">
         @@include('blocks/page-header/page-header.html')
-
         @@include('blocks/hero/hero.html')
       </div>
 
       <main class="main-page">
+        @@include('blocks/media-search/media-search.html')
+
+        @@include('blocks/base-category/base-category.html')
+
+        @@include('blocks/event-calendar/event-calendar.html')
+
+        <section class="container  partner-map">
+          <h2>Мапа - Наші партнери</h2>
+        </section>
+
+        @@include('blocks/partners-slider/partners-slider.html')
+
+        <section class="container  news-card__wrapper">
+          <h2>З чого почати?</h2>
+          <p style="margin-bottom:40px; font-size:20px; font-weight:500;">Свіжі та актуальні публікації від експертів Community Policing</p>
+
+          <div class="row  news-card__inner">
+
+            <div class="news-card__col">
+              @@include('blocks/news-card/news-card.html', {
+                "title": "Наша національна єдність зміцнилася",
+                "text": 'Сьогодні для українців нетиповий День Незалежності. Тридцять один рік тому Україна розірвала свої зв’язки з Радянським Союзом, а тепер боротьба за нашу свободу й цілісність…'
+              })
+            </div>
+
+              <div class="news-card__col">
+                @@include('blocks/news-card/news-card.html', {
+                  "title": "Проєкт СUPDP підтримав захід МВС із нагородження дітей",
+                  "text": 'Юні сміливці долучилися до волонтерського руху й зробили свій внесок у майбутню перемогу України. Тішимося такому активному поколінню і бажаємо кожній дитині відчути більше щастя…'
+                })
+              </div>
+
+              <div class="news-card__col">
+                @@include('blocks/news-card/news-card.html', {
+                  "title": "Єдність зміцнилася",
+                  "text": 'Сьогодні для українців нетиповий День Незалежності. Тридцять один рік тому Україна розірвала свої зв’язки з Радянським Союзом, а тепер боротьба за нашу свободу й цілісність…'
+                })
+              </div>
+
+              <div class="news-card__col">
+                @@include('blocks/news-card/news-card.html', {
+                  "title": "7 років поспіль нове покоління поліції України служить, захищає",
+                  "text": 'Зараз, в умовах повномасштабної війни, додався ще один фронт роботи, та поліцейські гідно дають відсіч ворогу і слідують присязі України. У посиленому режимі поліція продовжує…'
+                })
+              </div>
+
+          </div>
+        </section>
 
       </main>
+
+      @@include('blocks/login-call/login-call.html')
 
     </div>
 

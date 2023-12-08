@@ -1,14 +1,74 @@
 <!--DEV
-
-Для использования этого файла как шаблона:
-
 @ @include('blocks/base-category/base-category.html')
-
-(Нужно убрать пробел между символами @)
-Подробнее: https://www.npmjs.com/package/gulp-file-include
-
-
-
-<div class="base-category">content</div>
-
 -->
+
+<section class="container  base-category">
+  <h2 class="base-category__title">База знань Community Policing</h2>
+
+  <div class="base-category__inner">
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Філософія Community Policing",
+      "icon": "philosophy"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Громадська безпека",
+      "icon": "public-safety"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Безпека дорожнього руху",
+      "icon": "traffic-safety"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Протидія торгівлі людьми",
+      "icon": "kidnapping"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Інклюзивний напрямок",
+      "icon": "inclusive"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Організація безпекових проєктів",
+      "icon": "security-projects"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Світовий досвід",
+      "icon": "global-experience"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Реалізовані тренінги",
+      "icon": "trainings-realized"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "СНПК",
+      "icon": "snpc"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Робота з іноземцями",
+      "icon": "foreigners"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Безпека в дитячому середовищі",
+      "icon": "child-safety"
+    })
+
+    @@include('../../blocks/category-card/category-card.html', {
+      "title": "Протидії гендерно-зумовленому насильству",
+      "icon": "countering-violence"
+    })
+
+    <button class="btn  hero__invite-btn">
+      <span>Авторизуватись</span>
+      <svg width="24" height="24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite-svg.svg#arrow-right-sm"></use></svg>
+    </button>
+  </div>
+</section>

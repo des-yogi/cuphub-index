@@ -2,6 +2,14 @@
   padding-top: 48px;
   padding-bottom: 16px;
 
+  @media (min-width: $screen-md) {
+    padding-bottom: 32px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding-bottom: 72px;
+  }
+
   $block-name:                &; // #{$block-name}__element
 
   .block {
@@ -25,9 +33,17 @@
   &__col {
     @include col(xs, 12);
     @include col(lg, 6);
+
+    &--video {
+
+      @media (min-width: $screen-xl) {
+        margin-top: -32px;
+      }
+    }
   }
 
-  &__text {
+  &__text-bigger {
+    font-size: 20px;
   }
 
   &__invite {
@@ -82,6 +98,12 @@
     padding-right: 16px;
     padding-bottom: 16px;
 
+    @media (min-width: $screen-md) {
+      padding-top: 102px;
+      padding-right: 32px;
+      padding-bottom: 32px;
+    }
+
     &::before,
     &::after {
       display: block;
@@ -100,6 +122,13 @@
       height: 170px;
       background-image: url('../img/blue-tor.png');
       background-image: url('../img/blue-tor.webp');
+
+      @media (min-width: $screen-md) {
+        top: 0;
+        left: 72px;
+        width: 260px;
+        height: 260px;
+      }
     }
 
     &::after {
@@ -109,6 +138,11 @@
       height: 103px;
       background-image: url('../img/gold-square.png');
       background-image: url('../img/gold-square.webp');
+
+      @media (min-width: $screen-md) {
+        width: 204px;
+        height: 188px;
+      }
     }
   }
 }

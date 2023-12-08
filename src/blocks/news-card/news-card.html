@@ -1,14 +1,27 @@
 <!--DEV
-
-Для использования этого файла как шаблона:
-
-@ @include('blocks/news-card/news-card.html')
-
-(Нужно убрать пробел между символами @)
-Подробнее: https://www.npmjs.com/package/gulp-file-include
-
-
-
-<div class="news-card">content</div>
-
+@ @include('blocks/news-card/news-card.html', {
+  "title": "Наша національна єдність зміцнилася",
+  "text": 'Сьогодні для українців нетиповий День Незалежності. Тридцять один рік тому Україна розірвала свої зв’язки з Радянським Союзом, а тепер боротьба за нашу свободу й цілісність…'
+})
 -->
+
+<article class="news-card">
+  <a href="#" class="embed-responsive embed-responsive--3-2  news-card__img" aria-hidden="true" tabindex="-1">
+    <picture>
+      <img src="img/video-placeholder.jpg" width="900" height="675" alt='@@title' loading="lazy">
+    </picture>
+  </a>
+  <div class="news-card__text-wrapper">
+    <div class="news-card__text">
+      <h3 class="news-card__title">
+        <a href="#">@@title</a>
+      </h3>
+      <p class="news-card__intro">@@text</p>
+    </div>
+    <p class="news-card__bottom">
+      <span class="news-card__date">
+        <time datetime="2023-12-25">25 Грудня, 2023</time>
+      </span>
+    </p>
+  </div>
+</article>

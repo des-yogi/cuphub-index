@@ -1,10 +1,10 @@
 .partners-slider {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
   @media (min-width: $screen-md) {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
   $block-name:                &; // #{$block-name}__element
@@ -17,20 +17,19 @@
     }
   }
 
+  &__col {
+    @include col(xs, 12);
+    @include col(md, 10);
+    @include col(lg, 8);
+  }
+
   &__title {
     margin-top: 0;
+    margin-bottom: 16px;
   }
 
-  &__swiper {
-    margin-bottom: 72px;
-
-    @media (min-width: $screen-md) {
-      margin-bottom: 96px;
-    }
-  }
-
-  &__subtitle {
-    margin-top: 0;
+  &__intro {
+    font-size: 20px;
   }
 
   &__slide {

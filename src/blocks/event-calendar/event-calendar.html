@@ -1,14 +1,29 @@
 <!--DEV
-
-Для использования этого файла как шаблона:
-
 @ @include('blocks/event-calendar/event-calendar.html')
-
-(Нужно убрать пробел между символами @)
-Подробнее: https://www.npmjs.com/package/gulp-file-include
-
-
-
-<div class="event-calendar">content</div>
-
 -->
+
+<section class="container  event-calendar">
+  <h2 class="event-calendar__title">Календар подій <br> Community Policing в Україні</h2>
+
+  <div class="row  event-calendar__inner">
+
+    <div class="event-calendar__col">
+      <p class="event-calendar__text" style="margin-bottom:40px;">У календарі подій хабу ви знайдете онлайн та офлайн-заходи для поглиблення знань та нетворкінгу</p>
+      <div class="event-calendar__widget">
+        <div class="event-calendar__calendar">
+          <iframe title="Название календаря" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FKiev&src=NDVjZjA3MDQ1Y2M1MTBjZmIyY2NmZjQ3YzU2MmM3NDFmYTU1ZjQxOGJhNTI2ZjgyMjM4ZjAxYWQ1NWZmNWNiOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F6BF26" style="border-width:0" scrolling="no" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-calendar__col">
+      <div class="event-calendar__img">
+        <picture>
+          <source srcset="img/collage.webp" type="image/webp">
+          <img src="img/collage.jpg" alt="Alt text" width="833" height="930" loading="lazy">
+        </picture>
+      </div>
+    </div>
+
+  </div>
+</section>

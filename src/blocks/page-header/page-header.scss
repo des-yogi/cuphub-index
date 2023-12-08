@@ -36,6 +36,11 @@
       background-size: cover;
       background-position: center;
       background-image: svg-load('../blocks/page-header/bg-img/header-bg-mob.svg');
+
+      @media (min-width: $screen-md) {
+        background-position: top left;
+        background-image: svg-load('../blocks/page-header/bg-img/header-bg-dt.svg');
+      }
     }
 
     &::after {
@@ -49,6 +54,26 @@
       background-size: cover;
       background-position: bottom center;
       background-image: svg-load('../blocks/page-header/bg-img/header-curv-mob.svg');
+
+      @media (min-width: $screen-md) {
+        min-height: 610px;
+        background-image: svg-load('../blocks/page-header/bg-img/header-curv-tab.svg');
+      }
+
+      @media (min-width: $screen-lg) {
+        min-height: 195px;
+        height: 195px;
+        background-image: svg-load('../blocks/page-header/bg-img/header-curv-dt.svg');
+      }
+
+      @media (min-width: $screen-xl) {
+        height: 230px;
+      }
+
+      @media (min-width: $screen-xxl) {
+        min-height: 300px;
+        height: 300px;
+      }
     }
   }
 
