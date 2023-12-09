@@ -1,39 +1,22 @@
 .copyrights {
-  padding-top: 32px;
-  padding-bottom: 16px;
-
-  @media (min-width: $screen-md) {
-    padding-top: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  padding: 24px 0;
 
   $block-name:                &; // #{$block-name}__element
 
   &__inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: $font-size-sm;
-    text-align: center;
+    gap: 16px 24px;
 
     @media (min-width: $screen-md) {
-      align-items: flex-start;
-    }
-
-    @media (min-width: $screen-xl) {
       flex-direction: initial;
+      flex-wrap: wrap;
       align-items: baseline;
+      justify-content: space-between;
     }
 
     a {
-      margin-top: 16px;
       color: inherit;
-
-      @media (min-width: $screen-xl) {
-        margin-top: 0;
-        margin-left: 24px;
-      }
 
       &:hover,
       &:focus {
@@ -43,9 +26,25 @@
     }
   }
 
-  &__dev {
+  &__owner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px 24px;
 
-    @media (min-width: $screen-xl) {
+    @media (min-width: $screen-md) {
+      flex-direction: initial;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+  }
+
+  &__dev {
+    display: flex;
+  }
+
+  &__itdoors {
+
+    @media (min-width: $screen-lg) {
       margin-left: auto !important;
     }
   }
