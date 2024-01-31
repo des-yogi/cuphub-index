@@ -1,0 +1,70 @@
+.news-mini-card {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: block;
+  position: relative;
+  border-radius: $border-radius--24;
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+
+    #{$block-name}__title {
+      text-decoration: underline;
+    }
+  }
+
+
+  .publishedon::before {
+    background-image: svg-load('../blocks/sprite-svg/svg/calendar.svg', stroke=$white);
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-size: $font-size-sm;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__img {
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1005px;
+      height: 100%;
+      background-image: linear-gradient(180deg, rgba(9, 22, 57, 0) 0%, #091639 100%);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 24px 16px;
+    color: $white;
+  }
+
+  &__title {
+    //font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  &--lg {
+
+    #{$block-name}__title {
+      font-size: 26px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.index-news {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media (min-width: $screen-md) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__inner {
+
+  }
+
+  &__col {
+    @include col(xs, 12);
+    @include col(lg, 6);
+  }
+
+  &__sm-news {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 40px;
+
+    & > * {
+      flex: 1 1 auto;
+
+      @media (min-width: $screen-md) {
+        flex-basis: calc(50% - #{$grid-gutter-width / 2});
+      }
+    }
+
+    @media (min-width: $screen-md) {
+      flex-wrap: wrap;
+      flex-direction: initial;
+    }
+  }
+}
