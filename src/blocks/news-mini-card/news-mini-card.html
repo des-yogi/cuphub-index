@@ -1,0 +1,27 @@
+<!--DEV
+@ @include('blocks/news-mini-card/news-mini-card.html', {
+  "addClass": "news-mini-card--lg",
+  "text": "Сьогодні для українців нетиповий День Незалежності. Тридцять один рік тому Україна розірвала свої зв’язки з Радянським Союзом, а тепер боротьба за нашу свободу й цілісність…"
+})
+-->
+
+<a href="#" class="news-mini-card  @@addClass">
+  <div class="embed-responsive embed-responsive--4-3  news-mini-card__img">
+    <picture>
+      <source srcset="img/big-news-img.webp" media="(min-width: 320px)" type="image/webp">
+      <source srcset="img/big-news-img.jpg" media="(min-width: 320px)">
+
+      <img src="img/big-news-img.jpg" alt="">
+    </picture>
+  </div>
+
+  <div class="news-mini-card__text">
+    <h3 class="news-mini-card__title">
+      Наша національна єдність зміцнилася
+    </h3>
+    <p>@@text</p>
+    <div>
+      <time class="publishedon" datetime="2024-04-23">23.04.2024</time>
+    </div>
+  </div>
+</a>

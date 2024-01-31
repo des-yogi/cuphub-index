@@ -350,11 +350,12 @@ a {
 }
 
 .publishedon {
-  display: inline-block;
-  vertical-align: baseline;
+  display: inline-flex;
+  align-items: center;
   position: relative;
   padding-left: 28px;
-  font-size: inherit;
+  font-size: $font-size-sm;
+  font-weight: 500;
 
   &::before {
     display: block;
@@ -368,13 +369,6 @@ a {
     background-position: center;
     background-size: 20px;
     background-repeat: no-repeat;
-  }
-}
-
-.publishedon {
-  font-weight: 500;
-
-  &::before {
     background-image: svg-load('../blocks/sprite-svg/svg/calendar.svg', stroke=$text-color);
   }
 }

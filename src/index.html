@@ -24,6 +24,45 @@
 
         @@include('blocks/base-category/base-category.html')
 
+        <section class="container  index-news">
+          <h2>Новини</h2>
+
+          <div class="row  index-news__inner">
+
+            <div class="index-news__col">
+              @@include('blocks/news-mini-card/news-mini-card.html', {
+                "addClass": "news-mini-card--lg",
+                "text": "Сьогодні для українців нетиповий День Незалежності. Тридцять один рік тому Україна розірвала свої зв’язки з Радянським Союзом, а тепер боротьба за нашу свободу й цілісність…"
+              })
+            </div>
+
+            <div class="index-news__col">
+              <div class="index-news__sm-news">
+                @@include('blocks/news-mini-card/news-mini-card.html', {
+                  "addClass": "",
+                  "text": ""
+                })
+
+                @@include('blocks/news-mini-card/news-mini-card.html', {
+                  "addClass": "",
+                  "text": ""
+                })
+
+                @@include('blocks/news-mini-card/news-mini-card.html', {
+                  "addClass": "",
+                  "text": ""
+                })
+
+                @@include('blocks/news-mini-card/news-mini-card.html', {
+                  "addClass": "",
+                  "text": ""
+                })
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         @@include('blocks/event-calendar/event-calendar.html')
 
         <section class="container  partner-map">

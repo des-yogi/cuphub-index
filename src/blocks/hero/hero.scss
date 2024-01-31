@@ -7,7 +7,11 @@
   }
 
   @media (min-width: $screen-lg) {
-    padding-bottom: 72px;
+    padding-bottom: 100px;
+  }
+
+  @media (min-width: $screen-xxl) {
+    padding-bottom: 140px;
   }
 
   $block-name:                &; // #{$block-name}__element
@@ -34,12 +38,12 @@
     @include col(xs, 12);
     @include col(lg, 6);
 
-    &--video {
+    // &--video {
 
-      @media (min-width: $screen-xl) {
-        margin-top: -32px;
-      }
-    }
+    //   @media (min-width: $screen-xl) {
+    //     margin-top: -32px;
+    //   }
+    // }
   }
 
   &__text-bigger {
@@ -50,7 +54,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: 16px;
+    //margin-bottom: 16px;
 
     @media (min-width: $screen-md) {
       flex-wrap: initial;

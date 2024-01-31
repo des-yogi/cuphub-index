@@ -31,7 +31,10 @@
     "news-card": [],
     "login-call": [],
     "field-select": [],
-    "category-card": []
+    "category-card": [],
+    "index-news": [],
+    "news-mini-card": [],
+    "tags": []
   },
   "addCssBefore": [
     "../../node_modules/bootstrap/scss/_functions",
